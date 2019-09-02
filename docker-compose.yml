@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  localstack:
+    image: localstack/localstack
+    environment:
+      - SERVICES=s3
+    ports:
+      - '4572:4572'  # S3
+
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+      - '16686:16686'  # UI
+      - '6831:6831/udp'  # Agent
